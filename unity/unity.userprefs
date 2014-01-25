@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Platforms\DressedPlatform.cs">
+    <Files>
+      <File FileName="Assets\Scripts\DressManager.cs" Line="43" Column="5" />
+      <File FileName="Assets\Scripts\Globals.cs" Line="2" Column="46" />
+      <File FileName="Assets\Scripts\DressChanger.cs" Line="32" Column="4" />
+      <File FileName="Assets\Scripts\Platforms\DressedPlatform.cs" Line="21" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
