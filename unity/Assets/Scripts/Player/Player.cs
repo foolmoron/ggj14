@@ -88,7 +88,14 @@ namespace GGJ14 {
 						Velocity.x = 0.0f;
 					}
 				}
-
+			}
+			if (IsBlockedOnLeft() && Velocity.x < 0)
+			{
+				Velocity.x = Velocity.x/2;
+			}
+			if (IsBlockedOnRight() && Velocity.x > 0)
+			{
+				Velocity.x = Velocity.x/2;
 			}
 
 //Y movement		
@@ -127,7 +134,17 @@ namespace GGJ14 {
 			        (Physics.Raycast(transform.position - new Vector3(distToSide,0,0), -Vector3.up, (float)(distToGround + 0.1))));
 		}
 
+		bool IsBlockedOnLeft(){
+			return ((Physics.Raycast(transform.position, Vector3.left, (float)(distToSide + 0.1))) ||
+			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), Vector3.left, (float)(distToSide + 0.1)))||
+			        (Physics.Raycast(transform.position - new Vector3(0,-distToGround,0), Vector3.left, (float)(distToSide + 0.1))));
+		}
 
+		bool IsBlockedOnRight(){
+			return ((Physics.Raycast(transform.position, -Vector3.left, (float)(distToSide + 0.1))) ||
+			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1)))||
+			        (Physics.Raycast(transform.position - new Vector3(0,-distToGround,0), -Vector3.left, (float)(distToSide + 0.1))));
+		}
 		void UpdateDress() {
 			switch (currentDress) {
 			case Dresses.Plain:
