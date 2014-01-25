@@ -8,9 +8,12 @@ namespace GGJ14 {
 		public float MoveSpeed = 5f;
 		public float MoveThreshold = 0.5f;
 		public float JumpSpeed = 5f;
+		public float FallSpeed = 10f;
 		public Sprite PlainSprite;
 		public Sprite DotsSprite;
 		public Sprite StripesSprite;
+		private bool OnGround;
+		private float distToGround;
 
 		public Vector3 Velocity;
 
@@ -28,6 +31,7 @@ namespace GGJ14 {
 
 		void Start() {
 			UpdateDress();
+			distToGround = collider.bounds.extents.y;
 		}
 
 		void FixedUpdate() {
@@ -46,12 +50,21 @@ namespace GGJ14 {
 				Velocity.x = 0;
 			}
 
-			if (Input.GetButton("Jump")) {
-				Velocity.y = JumpSpeed;
-			} else {
-				Velocity.y = -JumpSpeed;
+		
+			if (!IsGrounded ()) 
+			{
+				Velocity.y = Velocity.y - FallSpeed * Time.deltaTime;
+			} 
+			else 
+			{
+				if (!Input.GetButton("Jump"))
+				{
+				Velocity.y = 0.0f;
+				}
 			}
-
+			if (Input.GetButton("Jump")&&IsGrounded()) {
+				Velocity.y = JumpSpeed;
+			}
 			if (Input.GetButtonDown("PreviousDress")) {
 				currentDress = dressChanger.PreviousDress();
 				dressChanger.ChangeDress(currentDress);
@@ -64,7 +77,9 @@ namespace GGJ14 {
 
 			characterController.Move(Velocity * Time.deltaTime);
 		}
-
+		bool IsGrounded(){
+			return Physics.Raycast(transform.position, -Vector3.up, (float)(distToGround + 0.1));
+		}
 		void UpdateDress() {
 			switch (currentDress) {
 			case Dresses.Plain:
