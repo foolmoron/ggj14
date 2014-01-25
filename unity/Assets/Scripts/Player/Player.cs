@@ -48,14 +48,14 @@ namespace GGJ14 {
 		void Update() {
 
 // X movement
-			if (Input.GetButton("Right")) {
+			if (Input.GetButton("Right") || Input.GetAxis("Horizontal360") > 0.001) {
 				if ((Velocity.x >= 0)&&((IsGrounded()&&Velocity.x<MaxMoveSpeed)||Velocity.x < MoveSpeed)) {
 					Velocity.x = Velocity.x + GroundAcceleration*Time.deltaTime;
 				} else if (Velocity.x < 0)
 				{
 					Velocity.x = Velocity.x + StoppingAccelleration*Time.deltaTime;
 				}
-			} else if (Input.GetButton("Left")) {
+			} else if (Input.GetButton("Left") || Input.GetAxis("Horizontal360") < 0) {
 				if ((Velocity.x <= 0)&&((IsGrounded()&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
 					Velocity.x = Velocity.x - GroundAcceleration*Time.deltaTime;
 				} else if (Velocity.x > 0)
@@ -95,20 +95,20 @@ namespace GGJ14 {
 			} 
 			else 
 			{
-				if (!Input.GetButton("Jump"))
+				if (!Input.GetButton("Jump") || !Input.GetButton("Jump360"))
 				{
 				Velocity.y = 0.0f;
 				}
 			}
-			if (Input.GetButton("Jump")&&IsGrounded()) {
+			if ((Input.GetButton("Jump")&&IsGrounded()) || (Input.GetButton("Jump")&&IsGrounded())) {
 				Velocity.y = JumpSpeed;
 			}
 // Dress Changes
-			if (Input.GetButtonDown("PreviousDress")) {
+			if (Input.GetButtonDown("PreviousDress") || Input.GetButtonDown("PreviousDress360")) {
 				currentDress = dressChanger.PreviousDress();
 				dressChanger.ChangeDress(currentDress);
 				UpdateDress();
-			} else if (Input.GetButtonDown("NextDress")) {
+			} else if (Input.GetButtonDown("NextDress") || Input.GetButtonDown("NextDress360")) {
 				currentDress = dressChanger.NextDress();
 				dressChanger.ChangeDress(currentDress);
 				UpdateDress();
