@@ -27,11 +27,15 @@ namespace GGJ14 {
 		DressChanger dressChanger;
 		Dresses currentDress;
 
+		Animator animator;
+
 		void Awake() {
 			characterController = GetComponent<CharacterController>();
 			spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 			dressChanger = GetComponent<DressChanger>();
 			currentDress = dressChanger.CurrentDress;
+
+			animator = GetComponentInChildren<Animator>();
 		}
 
 		void Start() {
@@ -51,6 +55,7 @@ namespace GGJ14 {
 		void Update() {
 
 // X movement
+
 			if (Input.GetButton("Right") || Input.GetAxis("Horizontal360") > 0.001) {
 				if ((Velocity.x >= 0)&&((IsGrounded()&&Velocity.x<MaxMoveSpeed)||Velocity.x < MoveSpeed)) {
 					Velocity.x = Velocity.x + GroundAcceleration*Time.deltaTime;
@@ -58,6 +63,9 @@ namespace GGJ14 {
 				{
 					Velocity.x = Velocity.x + StoppingAccelleration*Time.deltaTime;
 				}
+				transform.localScale = new Vector3(1, 1, 1);
+				animator.SetTrigger("Moving");
+				animator.ResetTrigger("NotMoving");
 			} else if (Input.GetButton("Left") || Input.GetAxis("Horizontal360") < 0) {
 				if ((Velocity.x <= 0)&&((IsGrounded()&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
 					Velocity.x = Velocity.x - GroundAcceleration*Time.deltaTime;
@@ -65,6 +73,9 @@ namespace GGJ14 {
 				{
 					Velocity.x = Velocity.x - StoppingAccelleration*Time.deltaTime;
 				}
+				transform.localScale = new Vector3(-1, 1, 1); // horizontally flip animation
+				animator.SetTrigger("Moving");
+				animator.ResetTrigger("NotMoving");
 			} else {
 				if(Velocity.x > 0)
 				{
@@ -87,6 +98,10 @@ namespace GGJ14 {
 					{
 						Velocity.x = 0.0f;
 					}
+				}
+				if (Velocity.x == 0.0f) {
+					animator.SetTrigger("NotMoving");
+					animator.ResetTrigger("Moving");
 				}
 			}
 			if (IsBlockedOnLeft() && Velocity.x < 0)
@@ -148,13 +163,13 @@ namespace GGJ14 {
 		void UpdateDress() {
 			switch (currentDress) {
 			case Dresses.Plain:
-				spriteRenderer.sprite = PlainSprite;
+				//spriteRenderer.sprite = PlainSprite;
 				break;
 			case Dresses.Dots:
-				spriteRenderer.sprite = DotsSprite;
+				//spriteRenderer.sprite = DotsSprite;
 				break;
 			case Dresses.Stripes:
-				spriteRenderer.sprite = StripesSprite;
+				//spriteRenderer.sprite = StripesSprite;
 				break;
 			}
 		}
