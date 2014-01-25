@@ -28,6 +28,7 @@ namespace GGJ14 {
 		Dresses currentDress;
 
 		Animator animator;
+		bool wasGrounded = false;
 
 		void Awake() {
 			characterController = GetComponent<CharacterController>();
@@ -53,11 +54,11 @@ namespace GGJ14 {
 		}
 		
 		void Update() {
+			bool isGrounded = IsGrounded();
 
-// X movement
-
+			// X movement
 			if (Input.GetButton("Right") || Input.GetAxis("Horizontal360") > 0.001) {
-				if ((Velocity.x >= 0)&&((IsGrounded()&&Velocity.x<MaxMoveSpeed)||Velocity.x < MoveSpeed)) {
+				if ((Velocity.x >= 0)&&((isGrounded&&Velocity.x<MaxMoveSpeed)||Velocity.x < MoveSpeed)) {
 					Velocity.x = Velocity.x + GroundAcceleration*Time.deltaTime;
 				} else if (Velocity.x < 0)
 				{
@@ -67,7 +68,7 @@ namespace GGJ14 {
 				animator.SetTrigger("Moving");
 				animator.ResetTrigger("NotMoving");
 			} else if (Input.GetButton("Left") || Input.GetAxis("Horizontal360") < 0) {
-				if ((Velocity.x <= 0)&&((IsGrounded()&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
+				if ((Velocity.x <= 0)&&((isGrounded&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
 					Velocity.x = Velocity.x - GroundAcceleration*Time.deltaTime;
 				} else if (Velocity.x > 0)
 				{
@@ -113,8 +114,8 @@ namespace GGJ14 {
 				Velocity.x = Velocity.x/2;
 			}
 
-//Y movement		
-			if (!IsGrounded ()) 
+			//Y movement		
+			if (!isGrounded) 
 			{
 				Velocity.y = Velocity.y - FallSpeed * Time.deltaTime;
 			} 
@@ -125,10 +126,15 @@ namespace GGJ14 {
 				Velocity.y = 0.0f;
 				}
 			}
-			if ((Input.GetButton("Jump")&&IsGrounded()) || (Input.GetButton("Jump360")&&IsGrounded())) {
+			if ((Input.GetButton("Jump")&&isGrounded) || (Input.GetButton("Jump360")&&isGrounded)) {
 				Velocity.y = JumpSpeed;
+				animator.SetTrigger("Jumped");
+				animator.ResetTrigger("Landed");
+				animator.ResetTrigger("NotMoving");
+				animator.ResetTrigger("Moving");
 			}
-// Dress Changes
+
+			// Dress Changes
 			if (Input.GetButtonDown("PreviousDress") || Input.GetButtonDown("PreviousDress360")) {
 				currentDress = dressChanger.PreviousDress();
 				dressChanger.ChangeDress(currentDress);
@@ -139,6 +145,12 @@ namespace GGJ14 {
 				UpdateDress();
 			}
 
+			//Landing
+			if (!wasGrounded && isGrounded) {
+				animator.SetTrigger("Landed");
+			}
+
+			wasGrounded = isGrounded;
 			characterController.Move(Velocity * Time.deltaTime);
 		}
 
