@@ -100,7 +100,7 @@ namespace GGJ14 {
 				Velocity.y = 0.0f;
 				}
 			}
-			if ((Input.GetButton("Jump")&&IsGrounded()) || (Input.GetButton("Jump")&&IsGrounded())) {
+			if ((Input.GetButton("Jump")&&IsGrounded()) || (Input.GetButton("Jump360")&&IsGrounded())) {
 				Velocity.y = JumpSpeed;
 			}
 // Dress Changes
