@@ -17,6 +17,7 @@ namespace GGJ14 {
 		public Sprite StripesSprite;
 		private bool OnGround;
 		private float distToGround;
+		private float distToSide;
 
 
 		public Vector3 Velocity;
@@ -40,6 +41,8 @@ namespace GGJ14 {
 		void Start() {
 			UpdateDress();
 			distToGround = collider.bounds.extents.y;
+			distToSide = collider.bounds.extents.x;
+			
 		}
 
 		void FixedUpdate() {
@@ -52,17 +55,20 @@ namespace GGJ14 {
 		void Update() {
 
 // X movement
-			if (Input.GetButton("Right")) {
+
+			if (Input.GetButton("Right") || Input.GetAxis("Horizontal360") > 0.001) {
 				if ((Velocity.x >= 0)&&((IsGrounded()&&Velocity.x<MaxMoveSpeed)||Velocity.x < MoveSpeed)) {
 					Velocity.x = Velocity.x + GroundAcceleration*Time.deltaTime;
 				} else if (Velocity.x < 0)
 				{
 					Velocity.x = Velocity.x + StoppingAccelleration*Time.deltaTime;
 				}
+			} else if (Input.GetButton("Left") || Input.GetAxis("Horizontal360") < 0) {
+
 				transform.localScale = new Vector3(1, 1, 1);
 				animator.SetTrigger("Moving");
 				animator.ResetTrigger("NotMoving");
-			} else if (Input.GetButton("Left")) {
+			}
 				if ((Velocity.x <= 0)&&((IsGrounded()&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
 					Velocity.x = Velocity.x - GroundAcceleration*Time.deltaTime;
 				} else if (Velocity.x > 0)
@@ -109,20 +115,20 @@ namespace GGJ14 {
 			} 
 			else 
 			{
-				if (!Input.GetButton("Jump"))
+				if (!Input.GetButton("Jump") && !Input.GetButton("Jump360"))
 				{
 				Velocity.y = 0.0f;
 				}
 			}
-			if (Input.GetButton("Jump")&&IsGrounded()) {
+			if ((Input.GetButton("Jump")&&IsGrounded()) || (Input.GetButton("Jump360")&&IsGrounded())) {
 				Velocity.y = JumpSpeed;
 			}
 // Dress Changes
-			if (Input.GetButtonDown("PreviousDress")) {
+			if (Input.GetButtonDown("PreviousDress") || Input.GetButtonDown("PreviousDress360")) {
 				currentDress = dressChanger.PreviousDress();
 				dressChanger.ChangeDress(currentDress);
 				UpdateDress();
-			} else if (Input.GetButtonDown("NextDress")) {
+			} else if (Input.GetButtonDown("NextDress") || Input.GetButtonDown("NextDress360")) {
 				currentDress = dressChanger.NextDress();
 				dressChanger.ChangeDress(currentDress);
 				UpdateDress();
@@ -133,7 +139,9 @@ namespace GGJ14 {
 
 
 		bool IsGrounded(){
-			return Physics.Raycast(transform.position, -Vector3.up, (float)(distToGround + 0.1));
+			return ((Physics.Raycast(transform.position, -Vector3.up, (float)(distToGround + 0.1))) ||
+			        (Physics.Raycast(transform.position + new Vector3(distToSide,0,0), -Vector3.up, (float)(distToGround + 0.1)))||
+			        (Physics.Raycast(transform.position - new Vector3(distToSide,0,0), -Vector3.up, (float)(distToGround + 0.1))));
 		}
 
 
