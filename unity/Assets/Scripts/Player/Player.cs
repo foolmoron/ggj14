@@ -120,12 +120,12 @@ namespace GGJ14 {
 			} 
 			else 
 			{
-				if (!Input.GetButton("Jump") && !Input.GetButton("Jump360"))
+				if (!Input.GetButtonDown("Jump") && !Input.GetButtonDown("Jump360"))
 				{
 				Velocity.y = 0.0f;
 				}
 			}
-			if ((Input.GetButton("Jump")&&IsGrounded()) || (Input.GetButton("Jump360")&&IsGrounded())) {
+			if ((Input.GetButtonDown("Jump")&&IsGrounded()) || (Input.GetButtonDown("Jump360")&&IsGrounded())) {
 				Velocity.y = JumpSpeed;
 			}
 // Dress Changes
@@ -152,13 +152,13 @@ namespace GGJ14 {
 		bool IsBlockedOnLeft(){
 			return ((Physics.Raycast(transform.position, Vector3.left, (float)(distToSide + 0.1))) ||
 			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), Vector3.left, (float)(distToSide + 0.1)))||
-			        (Physics.Raycast(transform.position - new Vector3(0,-distToGround,0), Vector3.left, (float)(distToSide + 0.1))));
+			        (Physics.Raycast(transform.position - new Vector3(0,distToGround,0), Vector3.left, (float)(distToSide + 0.1))));
 		}
 
 		bool IsBlockedOnRight(){
 			return ((Physics.Raycast(transform.position, -Vector3.left, (float)(distToSide + 0.1))) ||
 			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1)))||
-			        (Physics.Raycast(transform.position - new Vector3(0,-distToGround,0), -Vector3.left, (float)(distToSide + 0.1))));
+			        (Physics.Raycast(transform.position - new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1))));
 		}
 		void UpdateDress() {
 			switch (currentDress) {
