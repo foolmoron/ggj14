@@ -64,11 +64,6 @@ namespace GGJ14 {
 					Velocity.x = Velocity.x + StoppingAccelleration*Time.deltaTime;
 				}
 			} else if (Input.GetButton("Left") || Input.GetAxis("Horizontal360") < 0) {
-
-				transform.localScale = new Vector3(1, 1, 1);
-				animator.SetTrigger("Moving");
-				animator.ResetTrigger("NotMoving");
-			}
 				if ((Velocity.x <= 0)&&((IsGrounded()&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
 					Velocity.x = Velocity.x - GroundAcceleration*Time.deltaTime;
 				} else if (Velocity.x > 0)
