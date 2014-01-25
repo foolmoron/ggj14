@@ -6,14 +6,18 @@ namespace GGJ14 {
 	public class Player : MonoBehaviour {
 
 		public float MoveSpeed = 5f;
+		public float MaxMoveSpeed = 20f;
 		public float MoveThreshold = 0.5f;
-		public float JumpSpeed = 5f;
-		public float FallSpeed = 10f;
+		public float JumpSpeed = 15f;
+		public float FallSpeed = 40f;
+		public float GroundAcceleration = 20f;
+		public float StoppingAccelleration = 40f;
 		public Sprite PlainSprite;
 		public Sprite DotsSprite;
 		public Sprite StripesSprite;
 		private bool OnGround;
 		private float distToGround;
+
 
 		public Vector3 Velocity;
 
@@ -42,15 +46,49 @@ namespace GGJ14 {
 		}
 		
 		void Update() {
+
+// X movement
 			if (Input.GetButton("Right")) {
-				Velocity.x = MoveSpeed;
+				if ((Velocity.x >= 0)&&((IsGrounded()&&Velocity.x<MaxMoveSpeed)||Velocity.x < MoveSpeed)) {
+					Velocity.x = Velocity.x + GroundAcceleration*Time.deltaTime;
+				} else if (Velocity.x < 0)
+				{
+					Velocity.x = Velocity.x + StoppingAccelleration*Time.deltaTime;
+				}
 			} else if (Input.GetButton("Left")) {
-				Velocity.x = -MoveSpeed;
+				if ((Velocity.x <= 0)&&((IsGrounded()&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
+					Velocity.x = Velocity.x - GroundAcceleration*Time.deltaTime;
+				} else if (Velocity.x > 0)
+				{
+					Velocity.x = Velocity.x - StoppingAccelleration*Time.deltaTime;
+				}
 			} else {
-				Velocity.x = 0;
+				if(Velocity.x > 0)
+				{
+					if (Velocity.x-GroundAcceleration*Time.deltaTime > 0)
+					{
+						Velocity.x = Velocity.x-GroundAcceleration*Time.deltaTime;
+					}
+					else
+					{
+						Velocity.x = 0.0f;
+					}
+				}
+				else if (Velocity.x < 0)
+				{
+					if (Velocity.x+GroundAcceleration*Time.deltaTime < 0)
+					{
+						Velocity.x = Velocity.x+GroundAcceleration*Time.deltaTime;
+					}
+					else
+					{
+						Velocity.x = 0.0f;
+					}
+				}
+
 			}
 
-		
+//Y movement		
 			if (!IsGrounded ()) 
 			{
 				Velocity.y = Velocity.y - FallSpeed * Time.deltaTime;
@@ -65,6 +103,7 @@ namespace GGJ14 {
 			if (Input.GetButton("Jump")&&IsGrounded()) {
 				Velocity.y = JumpSpeed;
 			}
+// Dress Changes
 			if (Input.GetButtonDown("PreviousDress")) {
 				currentDress = dressChanger.PreviousDress();
 				dressChanger.ChangeDress(currentDress);
@@ -77,9 +116,13 @@ namespace GGJ14 {
 
 			characterController.Move(Velocity * Time.deltaTime);
 		}
+
+
 		bool IsGrounded(){
 			return Physics.Raycast(transform.position, -Vector3.up, (float)(distToGround + 0.1));
 		}
+
+
 		void UpdateDress() {
 			switch (currentDress) {
 			case Dresses.Plain:
