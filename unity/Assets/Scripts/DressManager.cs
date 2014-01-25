@@ -11,16 +11,18 @@ namespace GGJ14 {
 		DotsPlatform[] allDots;
 		StripesPlatform[] allStripes;
 
-		void Start () {
+		void Awake() {
 			currentDress = DressChangerToWatch.CurrentDress;
 			allPlain = Object.FindObjectsOfType<PlainPlatform>();
 			allDots = Object.FindObjectsOfType<DotsPlatform>();
 			allStripes = Object.FindObjectsOfType<StripesPlatform>();
+		}
 
+		void Start() {
 			HandleDressChanged();
 		}
 		
-		void Update () {
+		void Update() {
 			if (currentDress != DressChangerToWatch.CurrentDress) {
 				currentDress = DressChangerToWatch.CurrentDress;
 				HandleDressChanged();

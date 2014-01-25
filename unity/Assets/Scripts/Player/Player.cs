@@ -19,7 +19,7 @@ namespace GGJ14 {
 		DressChanger dressChanger;
 		Dresses currentDress;
 
-		void Start() {
+		void Awake() {
 			characterController = GetComponent<CharacterController>();
 			spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 			dressChanger = GetComponent<DressChanger>();

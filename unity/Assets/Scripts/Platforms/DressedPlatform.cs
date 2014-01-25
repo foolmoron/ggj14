@@ -7,7 +7,7 @@ namespace GGJ14 {
 		public SpriteRenderer SpriteRenderer { get; private set; }
 		public Collider Collider { get; private set; }
 
-		void Start() {
+		void Awake() {
 			SpriteRenderer = GetComponent<SpriteRenderer>();
 			Collider = GetComponent<Collider>();
 		}
