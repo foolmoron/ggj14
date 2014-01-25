@@ -26,6 +26,10 @@ namespace GGJ14 {
 			currentDress = dressChanger.CurrentDress;
 		}
 
+		void Start() {
+			UpdateDress();
+		}
+
 		void FixedUpdate() {
 			//snap to z = 0
 			Vector3 currentPosition = transform.position;
