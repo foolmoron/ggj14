@@ -6,4 +6,5 @@
 *.csproj
 *.unityproj
 *.sln
+*.meta
 unity/unity.userprefs
