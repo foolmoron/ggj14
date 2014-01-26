@@ -5,6 +5,7 @@ namespace GGJ14 {
 	[RequireComponent(typeof(DressChanger))]
 	public class Player : MonoBehaviour {
 
+		public LayerMask RaycastLayers;
 		public float MoveSpeed = 5f;
 		public float MaxMoveSpeed = 20f;
 		public float MoveThreshold = 0.5f;
@@ -156,21 +157,21 @@ namespace GGJ14 {
 
 
 		bool IsGrounded(){
-			return ((Physics.Raycast(transform.position, -Vector3.up, (float)(distToGround + 0.1))) ||
-			        (Physics.Raycast(transform.position + new Vector3(distToSide,0,0), -Vector3.up, (float)(distToGround + 0.1)))||
-			        (Physics.Raycast(transform.position - new Vector3(distToSide,0,0), -Vector3.up, (float)(distToGround + 0.1))));
+			return ((Physics.Raycast(transform.position, -Vector3.up, (float)(distToGround + 0.1), RaycastLayers)) ||
+			        (Physics.Raycast(transform.position + new Vector3(distToSide,0,0), -Vector3.up, (float)(distToGround + 0.1), RaycastLayers))||
+			        (Physics.Raycast(transform.position - new Vector3(distToSide,0,0), -Vector3.up, (float)(distToGround + 0.1), RaycastLayers)));
 		}
 		
 		bool IsBlockedOnLeft(){
-			return ((Physics.Raycast(transform.position, Vector3.left, (float)(distToSide + 0.1))) ||
-			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), Vector3.left, (float)(distToSide + 0.1)))||
-			        (Physics.Raycast(transform.position - new Vector3(0,distToGround,0), Vector3.left, (float)(distToSide + 0.1))));
+			return ((Physics.Raycast(transform.position, Vector3.left, (float)(distToSide + 0.1), RaycastLayers)) ||
+			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), Vector3.left, (float)(distToSide + 0.1), RaycastLayers))||
+			        (Physics.Raycast(transform.position - new Vector3(0,distToGround,0), Vector3.left, (float)(distToSide + 0.1), RaycastLayers)));
 		}
 		
 		bool IsBlockedOnRight(){
-			return ((Physics.Raycast(transform.position, -Vector3.left, (float)(distToSide + 0.1))) ||
-			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1)))||
-			        (Physics.Raycast(transform.position - new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1))));
+			return ((Physics.Raycast(transform.position, -Vector3.left, (float)(distToSide + 0.1), RaycastLayers)) ||
+			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1), RaycastLayers))||
+			        (Physics.Raycast(transform.position - new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1), RaycastLayers)));
 		}
 		void UpdateDress() {
 			switch (currentDress) {
