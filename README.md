@@ -1,4 +1,13 @@
 ggj14
 =====
 
-Global Game Jam 2014 Unity game
+A Unity game for Global Gam Jam 2014.  
+A delusional princess goes on an puzzle-platforming adventure using her magical ability to change dresses.  
+
+Team:  
+Erin Conley  
+Nicole Hamilton  
+Momin Khan  
+Will Mathews
+Kirk Musngi
+Sarah Walker  
