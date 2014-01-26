@@ -14,6 +14,9 @@ public class DressArrows : MonoBehaviour {
 
 	void Awake() {
 		SetCurrentDress(Dresses.Plain);
+		Vector3 prevScale = LeftArrow.transform.localScale;
+		prevScale.x = -Mathf.Abs(prevScale.x);
+		LeftArrow.transform.localScale = prevScale;
 	}
 	
 	public void SetCurrentDress(Dresses dress) {
