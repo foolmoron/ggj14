@@ -83,7 +83,8 @@ namespace GGJ14 {
 				animator.SetTrigger("Landed");
 			}*/
 			
-//			wasGrounded = isGrounded;
+			//			wasGrounded = isGrounded;
+
 			characterController.Move(Velocity * Time.deltaTime);
 		}
 		
