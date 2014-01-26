@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour {
 	public SpriteRenderer FadeSprite;
 	public GameObject VictoryParticles;
 
+	public bool ShowCutscene = false;
 	public Sprite CutsceneSprite;
 	public float CutsceneFadeInDuration = 1f;
 	public float CutsceneDuration = 3f;
@@ -31,7 +32,10 @@ public class Goal : MonoBehaviour {
 			float interp = fadeTime / FadeDuration;
 			if (interp >= 1) {
 				fading = false;
-				StartCutscene();
+				if (ShowCutscene)
+					StartCutscene();
+				else
+					Application.LoadLevel(NextLevel);
 			}
 
 			FadeSprite.material.color = Color.Lerp(Color.clear, Color.white, interp);
