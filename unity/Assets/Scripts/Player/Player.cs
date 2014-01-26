@@ -47,13 +47,6 @@ namespace GGJ14 {
 			
 		}
 
-		void FixedUpdate() {
-			//snap to z = 0
-			Vector3 currentPosition = transform.position;
-			currentPosition.z = 0;
-			transform.position = currentPosition;
-		}
-		
 		void Update() {
 			bool isGrounded = IsGrounded();
 
