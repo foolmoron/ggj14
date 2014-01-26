@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ae3472b8b5d5eb49b9126f394fb0493
+guid: 098c94495fb088d4a8c8333ba725972e
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,86 +45,113 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: TINA_IDLE_STRIPES_0
+    - name: tina_idle_stripes_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1638
-        width: 410
-        height: 410
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_IDLE_STRIPES_1
+    - name: tina_idle_stripes_1
       rect:
         serializedVersion: 2
-        x: 410
-        y: 1638
-        width: 410
-        height: 410
+        x: 600
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_IDLE_STRIPES_2
+    - name: tina_idle_stripes_2
       rect:
         serializedVersion: 2
-        x: 820
-        y: 1638
-        width: 410
-        height: 410
+        x: 1200
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_IDLE_STRIPES_3
+    - name: tina_idle_stripes_3
       rect:
         serializedVersion: 2
-        x: 1230
-        y: 1638
-        width: 410
-        height: 410
+        x: 1800
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_IDLE_STRIPES_4
+    - name: tina_idle_stripes_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1228
-        width: 410
-        height: 410
+        x: 2400
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_IDLE_STRIPES_5
-      rect:
-        serializedVersion: 2
-        x: 410
-        y: 1228
-        width: 410
-        height: 410
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_IDLE_STRIPES_6
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 1228
-        width: 410
-        height: 410
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_IDLE_STRIPES_7
-      rect:
-        serializedVersion: 2
-        x: 1230
-        y: 1228
-        width: 410
-        height: 410
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_IDLE_STRIPES_8
+    - name: tina_idle_stripes_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 821
-        width: 410
-        height: 410
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: tina_idle_stripes_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: tina_idle_stripes_7
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: tina_idle_stripes_8
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: tina_idle_stripes_9
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: tina_idle_stripes_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: tina_idle_stripes_11
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 0
+        width: 2401
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 

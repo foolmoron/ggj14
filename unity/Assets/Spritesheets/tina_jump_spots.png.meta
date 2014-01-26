@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d279f2adc22b52948b1a39c75c941c84
+guid: 2c103fac1e4bbcf4d9ae1bf990a9f14b
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,7 +45,7 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: tina_jump_stripes_0
+    - name: tina_jump_dots_0
       rect:
         serializedVersion: 2
         x: 0
@@ -54,7 +54,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_1
+    - name: tina_jump_dots_1
       rect:
         serializedVersion: 2
         x: 600
@@ -63,7 +63,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_2
+    - name: tina_jump_dots_2
       rect:
         serializedVersion: 2
         x: 1200
@@ -72,7 +72,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_3
+    - name: tina_jump_dots_3
       rect:
         serializedVersion: 2
         x: 1800
@@ -81,7 +81,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_4
+    - name: tina_jump_dots_4
       rect:
         serializedVersion: 2
         x: 2400
@@ -90,7 +90,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_5
+    - name: tina_jump_dots_5
       rect:
         serializedVersion: 2
         x: 0
@@ -99,7 +99,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_6
+    - name: tina_jump_dots_6
       rect:
         serializedVersion: 2
         x: 600
@@ -108,7 +108,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_7
+    - name: tina_jump_dots_7
       rect:
         serializedVersion: 2
         x: 1200
@@ -117,7 +117,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_8
+    - name: tina_jump_dots_8
       rect:
         serializedVersion: 2
         x: 1800
@@ -126,7 +126,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_9
+    - name: tina_jump_dots_9
       rect:
         serializedVersion: 2
         x: 2400
@@ -135,7 +135,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_10
+    - name: tina_jump_dots_10
       rect:
         serializedVersion: 2
         x: 0
@@ -144,7 +144,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_11
+    - name: tina_jump_dots_11
       rect:
         serializedVersion: 2
         x: 600
@@ -153,7 +153,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_12
+    - name: tina_jump_dots_12
       rect:
         serializedVersion: 2
         x: 1800
@@ -162,7 +162,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_13
+    - name: tina_jump_dots_13
       rect:
         serializedVersion: 2
         x: 2400
@@ -171,7 +171,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_14
+    - name: tina_jump_dots_14
       rect:
         serializedVersion: 2
         x: 0
@@ -180,7 +180,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_15
+    - name: tina_jump_dots_15
       rect:
         serializedVersion: 2
         x: 600
@@ -189,7 +189,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_16
+    - name: tina_jump_dots_16
       rect:
         serializedVersion: 2
         x: 1200
@@ -198,7 +198,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_17
+    - name: tina_jump_dots_17
       rect:
         serializedVersion: 2
         x: 1800
@@ -207,7 +207,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_18
+    - name: tina_jump_dots_18
       rect:
         serializedVersion: 2
         x: 2400
@@ -216,7 +216,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_19
+    - name: tina_jump_dots_19
       rect:
         serializedVersion: 2
         x: 0
@@ -225,7 +225,7 @@ TextureImporter:
         height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: tina_jump_stripes_20
+    - name: tina_jump_dots_20
       rect:
         serializedVersion: 2
         x: 599
@@ -234,7 +234,7 @@ TextureImporter:
         height: 602
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: tina_jump_stripes_21
+    - name: tina_jump_dots_21
       rect:
         serializedVersion: 2
         x: 1200

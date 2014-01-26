@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f02a7994077d3374c9161145329a7721
+guid: 7f09f90c2ffb06c46b132f90ac9cbfaa
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,140 +45,113 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: TINA_JUMP_0
+    - name: tina_idle_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1658
-        width: 410
-        height: 390
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_1
+    - name: tina_idle_1
       rect:
         serializedVersion: 2
-        x: 410
-        y: 1658
-        width: 410
-        height: 390
+        x: 600
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_2
+    - name: tina_idle_2
       rect:
         serializedVersion: 2
-        x: 820
-        y: 1658
-        width: 410
-        height: 390
+        x: 1200
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_3
+    - name: tina_idle_3
       rect:
         serializedVersion: 2
-        x: 1210
-        y: 1658
-        width: 410
-        height: 390
+        x: 1800
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_4
+    - name: tina_idle_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1268
-        width: 410
-        height: 390
+        x: 2400
+        y: 1200
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_5
-      rect:
-        serializedVersion: 2
-        x: 410
-        y: 1268
-        width: 410
-        height: 390
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_6
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 1268
-        width: 410
-        height: 390
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_7
-      rect:
-        serializedVersion: 2
-        x: 1210
-        y: 1268
-        width: 410
-        height: 390
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_8
+    - name: tina_idle_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 878
-        width: 410
-        height: 390
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_9
+    - name: tina_idle_6
       rect:
         serializedVersion: 2
-        x: 410
-        y: 878
-        width: 410
-        height: 390
+        x: 600
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_10
+    - name: tina_idle_7
       rect:
         serializedVersion: 2
-        x: 820
-        y: 878
-        width: 410
-        height: 390
+        x: 1200
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_11
+    - name: tina_idle_8
       rect:
         serializedVersion: 2
-        x: 1210
-        y: 878
-        width: 410
-        height: 390
+        x: 1800
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_12
+    - name: tina_idle_9
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: tina_idle_10
       rect:
         serializedVersion: 2
         x: 0
-        y: 488
-        width: 410
-        height: 390
+        y: 0
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_13
+    - name: tina_idle_11
       rect:
         serializedVersion: 2
-        x: 410
-        y: 488
-        width: 410
-        height: 390
+        x: 599
+        y: 0
+        width: 2401
+        height: 602
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_JUMP_14
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 488
-        width: 410
-        height: 390
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 

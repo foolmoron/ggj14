@@ -45,85 +45,58 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: TINA_RUN_STRIPES_0
+    - name: TINA_RUN_0
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: TINA_RUN_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 1638
-        width: 410
-        height: 410
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_RUN_STRIPES_1
+    - name: TINA_RUN_2
       rect:
         serializedVersion: 2
-        x: 410
-        y: 1638
-        width: 410
-        height: 410
+        x: 1200
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_RUN_STRIPES_2
+    - name: TINA_RUN_3
       rect:
         serializedVersion: 2
-        x: 820
-        y: 1638
-        width: 410
-        height: 410
+        x: 1800
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_RUN_STRIPES_3
+    - name: TINA_RUN_4
       rect:
         serializedVersion: 2
-        x: 1238
-        y: 1638
-        width: 410
-        height: 410
+        x: 2400
+        y: 600
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: TINA_RUN_STRIPES_4
-      rect:
-        serializedVersion: 2
-        x: 1230
-        y: 1228
-        width: 410
-        height: 410
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_RUN_STRIPES_5
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 1228
-        width: 410
-        height: 410
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_RUN_STRIPES_6
-      rect:
-        serializedVersion: 2
-        x: 410
-        y: 1228
-        width: 410
-        height: 410
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_RUN_STRIPES_7
+    - name: TINA_RUN_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 1228
-        width: 410
-        height: 410
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: TINA_RUN_STRIPES_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 818
-        width: 410
-        height: 410
+        y: 0
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 
