@@ -27,9 +27,12 @@ namespace GGJ14 {
 		SpriteRenderer spriteRenderer;
 		DressChanger dressChanger;
 		Dresses currentDress;
-
+		
 		Animator animator;
+		string currentAnim;
+
 		bool wasGrounded = false;
+		bool jumping = false;
 
 		void Awake() {
 			characterController = GetComponent<CharacterController>();
@@ -41,10 +44,9 @@ namespace GGJ14 {
 		}
 
 		void Start() {
-			UpdateDress();
 			distToGround = collider.bounds.extents.y;
 			distToSide = collider.bounds.extents.x;
-			
+			PlayAnimWithCurrentDress("Idle");
 		}
 
 		void Update() {
@@ -59,8 +61,8 @@ namespace GGJ14 {
 					Velocity.x = Velocity.x + StoppingAccelleration*Time.deltaTime;
 				}
 				transform.localScale = new Vector3(1, 1, 1);
-				animator.SetTrigger("Moving");
-				animator.ResetTrigger("NotMoving");
+				if (!jumping)
+					PlayAnimWithCurrentDress("Walking");
 			} else if (Input.GetButton("Left") || Input.GetAxis("Horizontal360") < 0) {
 				if ((Velocity.x <= 0)&&((isGrounded&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
 					Velocity.x = Velocity.x - GroundAcceleration*Time.deltaTime;
@@ -69,8 +71,8 @@ namespace GGJ14 {
 					Velocity.x = Velocity.x - StoppingAccelleration*Time.deltaTime;
 				}
 				transform.localScale = new Vector3(-1, 1, 1); // horizontally flip animation
-				animator.SetTrigger("Moving");
-				animator.ResetTrigger("NotMoving");
+				if (!jumping)
+					PlayAnimWithCurrentDress("Walking");
 			} else {
 				if(Velocity.x > 0)
 				{
@@ -95,8 +97,8 @@ namespace GGJ14 {
 					}
 				}
 				if (Velocity.x == 0.0f) {
-					animator.SetTrigger("NotMoving");
-					animator.ResetTrigger("Moving");
+					if (!jumping)
+						PlayAnimWithCurrentDress("Idle");
 				}
 			}
 			if (IsBlockedOnLeft() && Velocity.x < 0)
@@ -121,27 +123,29 @@ namespace GGJ14 {
 				}
 			}
 			if ((Input.GetButtonDown("Jump")&&IsGrounded()) || (Input.GetButtonDown("Jump360")&&IsGrounded())) {
+				jumping = true;
 				Velocity.y = JumpSpeed;
-				animator.SetTrigger("Jumped");
-				animator.ResetTrigger("Landed");
-				animator.ResetTrigger("NotMoving");
-				animator.ResetTrigger("Moving");
+				PlayAnimWithCurrentDress("Jump");
 			}
 
 			// Dress Changes
 			if (Input.GetButtonDown("PreviousDress") || Input.GetButtonDown("PreviousDress360")) {
 				currentDress = dressChanger.PreviousDress();
 				dressChanger.ChangeDress(currentDress);
-				UpdateDress();
+				UpdateAnimWithCurrentDress();
 			} else if (Input.GetButtonDown("NextDress") || Input.GetButtonDown("NextDress360")) {
 				currentDress = dressChanger.NextDress();
 				dressChanger.ChangeDress(currentDress);
-				UpdateDress();
+				UpdateAnimWithCurrentDress();
 			}
 
 			//Landing
 			if (!wasGrounded && isGrounded) {
-				animator.SetTrigger("Landed");
+				jumping = false;
+				if (Velocity.x != 0.0f)
+					PlayAnimWithCurrentDress("Walking");
+				else
+					PlayAnimWithCurrentDress("Idle");
 			}
 
 			wasGrounded = isGrounded;
@@ -166,18 +170,27 @@ namespace GGJ14 {
 			        (Physics.Raycast(transform.position + new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1), RaycastLayers))||
 			        (Physics.Raycast(transform.position - new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1), RaycastLayers)));
 		}
-		void UpdateDress() {
+
+		void PlayAnimWithCurrentDress(string animName) {
+			string animSuffix = "";
 			switch (currentDress) {
 			case Dresses.Plain:
-				//spriteRenderer.sprite = PlainSprite;
+				animSuffix = "Plain";
 				break;
 			case Dresses.Dots:
-				//spriteRenderer.sprite = DotsSprite;
+				animSuffix = "Dots";
 				break;
 			case Dresses.Stripes:
-				//spriteRenderer.sprite = StripesSprite;
+				animSuffix = "Stripes";
 				break;
 			}
+
+			currentAnim = animName;
+			animator.Play(animName + animSuffix);
+		}
+
+		void UpdateAnimWithCurrentDress() {
+
 		}
 	}
 }
