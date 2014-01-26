@@ -10,12 +10,14 @@ namespace GGJ14 {
 		PlainPlatform[] allPlain;
 		DotsPlatform[] allDots;
 		StripesPlatform[] allStripes;
+		DressArrows dressArrows;
 
 		void Awake() {
 			currentDress = DressChangerToWatch.CurrentDress;
 			allPlain = Object.FindObjectsOfType<PlainPlatform>();
 			allDots = Object.FindObjectsOfType<DotsPlatform>();
 			allStripes = Object.FindObjectsOfType<StripesPlatform>();
+			dressArrows = Object.FindObjectOfType<DressArrows>();
 		}
 
 		void Start() {
@@ -49,6 +51,9 @@ namespace GGJ14 {
 			for (int i = 0; i < platformsToEnable.Length; i++) { 
 				platformsToEnable[i].Enable(); 
 			}
+
+			if (dressArrows)
+				dressArrows.SetCurrentDress(currentDress);
 		}
 	}
 }
