@@ -189,8 +189,23 @@ namespace GGJ14 {
 			animator.Play(animName + animSuffix);
 		}
 
-		void UpdateAnimWithCurrentDress() {
+		void UpdateAnimWithCurrentDress() {			
+			string animSuffix = "";
+			switch (currentDress) {
+			case Dresses.Plain:
+				animSuffix = "Plain";
+				break;
+			case Dresses.Dots:
+				animSuffix = "Dots";
+				break;
+			case Dresses.Stripes:
+				animSuffix = "Stripes";
+				break;
+			}
 
+			var state = animator.GetCurrentAnimatorStateInfo(0);
+			var prevTime = state.normalizedTime;
+			animator.Play(currentAnim + animSuffix, 0, prevTime);
 		}
 	}
 }
