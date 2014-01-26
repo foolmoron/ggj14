@@ -13,9 +13,6 @@ namespace GGJ14 {
 		public float FallSpeed = 40f;
 		public float GroundAcceleration = 20f;
 		public float StoppingAccelleration = 40f;
-		public Sprite PlainSprite;
-		public Sprite DotsSprite;
-		public Sprite StripesSprite;
 		private bool OnGround;
 		private float distToGround;
 		private float distToSide;
