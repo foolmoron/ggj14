@@ -63,12 +63,15 @@ public class Goal : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other) {
+	public void OnTriggerEnter(Collider other) {
 		if (!canLoad)
 			return;
 
-		var player = other.GetComponent<Player>(); // only player can hit this trigger
-		player.GetComponent<CharacterController>().enabled = false;
+		if (other) {
+			var player = other.GetComponent<Player>();
+			if (player)
+				player.GetComponent<CharacterController>().enabled = false;
+		}
 
 		canLoad = false;
 		StartCoroutine(FadeWithDelay());
