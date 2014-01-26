@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GGJ14;
 
 public class Goal : MonoBehaviour {
 
@@ -65,6 +66,9 @@ public class Goal : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (!canLoad)
 			return;
+
+		var player = other.GetComponent<Player>(); // only player can hit this trigger
+		player.GetComponent<CharacterController>().enabled = false;
 
 		canLoad = false;
 		StartCoroutine(FadeWithDelay());
