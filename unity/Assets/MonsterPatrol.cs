@@ -22,6 +22,11 @@ public class MonsterPatrol : MonoBehaviour {
 			Velocity = -Velocity;
 			TimeTillChange = TimeToChange + Time.time;
 		}
+
+		if (Velocity.x < 0)
+			transform.localScale = new Vector3(1, 1, 1); // horizontally flip animation
+		else
+			transform.localScale = new Vector3(-1, 1, 1);
 		characterController.Move(Velocity * Time.deltaTime);
 	}
 }

@@ -10,6 +10,7 @@ namespace GGJ14 {
 		PlainPlatform[] allPlain;
 		DotsPlatform[] allDots;
 		StripesPlatform[] allStripes;
+		DressedMonster[] monsters;
 		DressArrows dressArrows;
 
 		void Awake() {
@@ -17,6 +18,7 @@ namespace GGJ14 {
 			allPlain = Object.FindObjectsOfType<PlainPlatform>();
 			allDots = Object.FindObjectsOfType<DotsPlatform>();
 			allStripes = Object.FindObjectsOfType<StripesPlatform>();
+			monsters = Object.FindObjectsOfType<DressedMonster>();
 			dressArrows = Object.FindObjectOfType<DressArrows>();
 		}
 
@@ -54,6 +56,10 @@ namespace GGJ14 {
 
 			if (dressArrows)
 				dressArrows.SetCurrentDress(currentDress);
+
+			for (int i = 0; i < monsters.Length; i++) {
+				monsters[i].SetCurrentDress(currentDress);
+			}
 		}
 	}
 }
