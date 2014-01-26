@@ -4,7 +4,7 @@ using System.Collections;
 public class MonsterPatrol : MonoBehaviour {
 	private float TimeTillChange;
 	public float TimeToChange;
-	public float MoveSpeed;
+	public float MoveSpeed = 5f;
 	CharacterController characterController;
 	public Vector3 Velocity;
 
