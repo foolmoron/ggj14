@@ -2,15 +2,14 @@
 using System.Collections;
 
 public class FadeIn : MonoBehaviour {
+	public SpriteRenderer FadeSprite;
 	public float FadeDuration = 2f;
 	float fadeTime = 0;
-	SpriteRenderer spriteRenderer;
 	Material fadeMaterial;
 
 	void Start () {
-		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-		spriteRenderer.enabled = true;
-		fadeMaterial = spriteRenderer.material;
+		FadeSprite.enabled = true;
+		fadeMaterial = FadeSprite.material;
 		fadeMaterial.color = Color.white;
 	}
 
@@ -20,7 +19,7 @@ public class FadeIn : MonoBehaviour {
 			float interp = fadeTime / FadeDuration;
 			fadeMaterial.color = Color.Lerp(Color.white, Color.clear, interp);
 		} else {
-			spriteRenderer.enabled = false;
+			FadeSprite.enabled = false;
 			this.enabled = false;
 		}
 	}
