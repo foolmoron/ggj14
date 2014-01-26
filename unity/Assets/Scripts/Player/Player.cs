@@ -19,6 +19,10 @@ namespace GGJ14 {
 
 
 		public Vector3 Velocity;
+		public float RunAnimMinSpeed = 10f;
+
+		public GameObject OnJumpPrefab;
+		public Vector3 OnJumpPrefabOffset;
 
 		CharacterController characterController;
 		SpriteRenderer spriteRenderer;
@@ -59,7 +63,7 @@ namespace GGJ14 {
 				}
 				transform.localScale = new Vector3(1, 1, 1);
 				if (!jumping)
-					PlayAnimWithCurrentDress("Walking");
+					PlayMoveAnim(Velocity.x);
 			} else if (Input.GetButton("Left") || Input.GetAxis("Horizontal360") < 0) {
 				if ((Velocity.x <= 0)&&((isGrounded&&Velocity.x>-MaxMoveSpeed)||Velocity.x > -MoveSpeed)) {
 					Velocity.x = Velocity.x - GroundAcceleration*Time.deltaTime;
@@ -69,7 +73,7 @@ namespace GGJ14 {
 				}
 				transform.localScale = new Vector3(-1, 1, 1); // horizontally flip animation
 				if (!jumping)
-					PlayAnimWithCurrentDress("Walking");
+					PlayMoveAnim(Velocity.x);
 			} else {
 				if(Velocity.x > 0)
 				{
@@ -123,6 +127,7 @@ namespace GGJ14 {
 				jumping = true;
 				Velocity.y = JumpSpeed;
 				PlayAnimWithCurrentDress("Jump");
+				Instantiate(OnJumpPrefab, transform.position + OnJumpPrefabOffset, Quaternion.identity);
 			}
 
 			// Dress Changes
@@ -140,7 +145,7 @@ namespace GGJ14 {
 			if (!wasGrounded && isGrounded) {
 				jumping = false;
 				if (Velocity.x != 0.0f)
-					PlayAnimWithCurrentDress("Walking");
+					PlayMoveAnim(Velocity.x);
 				else
 					PlayAnimWithCurrentDress("Idle");
 			}
@@ -168,6 +173,12 @@ namespace GGJ14 {
 			        (Physics.Raycast(transform.position - new Vector3(0,distToGround,0), -Vector3.left, (float)(distToSide + 0.1), RaycastLayers)));
 		}
 
+		void PlayMoveAnim(float x) {
+			if (Mathf.Abs(x) >= RunAnimMinSpeed)
+				PlayAnimWithCurrentDress("Run");
+			else 
+				PlayAnimWithCurrentDress("Walk");
+		}
 		void PlayAnimWithCurrentDress(string animName) {
 			string animSuffix = "";
 			switch (currentDress) {
