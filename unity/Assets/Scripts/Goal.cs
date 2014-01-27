@@ -23,6 +23,8 @@ public class Goal : MonoBehaviour {
 	float fadeTime = 0;
 	bool canLoad = true;
 
+	public bool StopAudioSourceOnLoad = false;
+
 	void Start () {
 		FadeSprite.material.color = Color.clear;
 	}
@@ -35,8 +37,11 @@ public class Goal : MonoBehaviour {
 				fading = false;
 				if (ShowCutscene)
 					StartCutscene();
-				else
+				else {
+					if (StopAudioSourceOnLoad)
+						Destroy(Object.FindObjectOfType<AudioSource>().gameObject);
 					Application.LoadLevel(NextLevel);
+				}
 			}
 
 			FadeSprite.material.color = Color.Lerp(Color.clear, Color.white, interp);
@@ -56,6 +61,8 @@ public class Goal : MonoBehaviour {
 			float interp = fadeTime / CutsceneFadeOutDuration;
 			if (interp >= 1) {
 				cutsceneFadingOut = false;
+				if (StopAudioSourceOnLoad)
+					Destroy(Object.FindObjectOfType<AudioSource>().gameObject);
 				Application.LoadLevel(NextLevel);
 			}
 			
@@ -98,7 +105,7 @@ public class Goal : MonoBehaviour {
 		cutscene.sortingOrder = FadeSprite.sortingOrder;
 		cutscene.transform.parent = FadeSprite.transform.parent;
 		cutscene.transform.localPosition = new Vector3(FadeSprite.transform.localPosition.x, FadeSprite.transform.localPosition.y, FadeSprite.transform.localPosition.z + 1);
-		cutscene.transform.localScale = new Vector3(6.4f, 6.4f, 1);
+		cutscene.transform.localScale = new Vector3(3.11f, 3.11f, 1);
 
 		cutsceneFadingIn = true;
 		fadeTime = 0;
