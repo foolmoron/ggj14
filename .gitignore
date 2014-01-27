@@ -7,3 +7,4 @@
 *.unityproj
 *.sln
 unity/unity.userprefs
+build/build.unity3d
