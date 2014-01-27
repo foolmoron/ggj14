@@ -38,8 +38,14 @@ public class Goal : MonoBehaviour {
 				if (ShowCutscene)
 					StartCutscene();
 				else {
-					if (StopAudioSourceOnLoad)
-						Destroy(Object.FindObjectOfType<AudioSource>().gameObject);
+					if (StopAudioSourceOnLoad) {
+						var all = Object.FindObjectsOfType<MonoBehaviour>();
+						foreach (var obj in all) {
+							if (obj.GetComponent<AudioSource>())
+								obj.GetComponent<AudioSource>().Stop();
+							Destroy(obj);
+						}
+					}					
 					Application.LoadLevel(NextLevel);
 				}
 			}
@@ -61,8 +67,14 @@ public class Goal : MonoBehaviour {
 			float interp = fadeTime / CutsceneFadeOutDuration;
 			if (interp >= 1) {
 				cutsceneFadingOut = false;
-				if (StopAudioSourceOnLoad)
-					Destroy(Object.FindObjectOfType<AudioSource>().gameObject);
+				if (StopAudioSourceOnLoad) {
+					var all = Object.FindObjectsOfType<MonoBehaviour>();
+					foreach (var obj in all) {
+						if (obj.GetComponent<AudioSource>())
+							obj.GetComponent<AudioSource>().Stop();
+						Destroy(obj);
+					}
+				}
 				Application.LoadLevel(NextLevel);
 			}
 			
