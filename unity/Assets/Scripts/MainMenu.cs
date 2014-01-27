@@ -3,20 +3,29 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
-	public Texture bgTexture;
+	public string FirstGameScene;
+	public string ControlsScene;
+
+	public float StartLeft;
+	public float StartTop;
+	public float StartWidth;
+	public float StartHeight;
+	public float ControlsLeft;
+	public float ControlsTop;
+	public float ControlsWidth;
+	public float ControlsHeight;
+
+	Color highlight = new Color(255, 105, 180, 128);
 
 	void OnGUI () {
-		// Make a background box
-		GUI.Box(new Rect(125,125,400,350), "Super Princess Adventure");
-		
-		// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-		if(GUI.Button(new Rect(150,175,350,100), "Start Game")) {
-			Application.LoadLevel(1);
+		GUI.color = Color.clear;
+
+		if (GUI.Button(new Rect(StartLeft,StartTop,StartWidth,StartHeight), "")) {
+			Application.LoadLevel(FirstGameScene);
 		}
-		
-		// Make the second button.
-		if(GUI.Button(new Rect(150,300,350,100), "Options")) {
-			Application.LoadLevel(2);
+
+		if(GUI.Button(new Rect(ControlsLeft,ControlsTop,ControlsWidth,ControlsHeight), "")) {
+			Application.LoadLevel(ControlsScene);
 		}
 	}
 }
