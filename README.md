@@ -7,7 +7,9 @@ A delusional princess goes on an puzzle-platforming adventure using her magical 
 Team:  
 Erin Conley  
 Nicole Hamilton  
-Momin Khan  
-Will Mathews
-Kirk Musngi
+Momin Khan   
+Will Mathews  
+Kirk Musngi  
 Sarah Walker  
+John Powell  
+Savannah Henderson  
