@@ -2,6 +2,7 @@
 using System.Collections;
 
 namespace GGJ14 {
+	[RequireComponent(typeof(AudioSource))]
 	[RequireComponent(typeof(DressChanger))]
 	public class Player : MonoBehaviour {
 
@@ -125,6 +126,7 @@ namespace GGJ14 {
 			}
 			if ((Input.GetButtonDown("Jump")&&IsGrounded()) || (Input.GetButtonDown("Jump360")&&IsGrounded())) {
 				jumping = true;
+				audio.Play();
 				Velocity.y = JumpSpeed;
 				PlayAnimWithCurrentDress("Jump");
 				Instantiate(OnJumpPrefab, transform.position + OnJumpPrefabOffset, Quaternion.identity);
