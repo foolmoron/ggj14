@@ -1,4 +1,4 @@
-ggj14
+Princess Tina
 =====
 
 A Unity game for Global Gam Jam 2014.  
