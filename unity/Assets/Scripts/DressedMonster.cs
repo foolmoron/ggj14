@@ -28,10 +28,12 @@ public class DressedMonster : MonoBehaviour {
 				animSuffix = "Stripes";
 				break;
 			}
-			
-			var state = animator.GetCurrentAnimatorStateInfo(0);
-			var prevTime = state.normalizedTime;
-			animator.Play(AnimationPrefix + animSuffix, 0, prevTime);
+
+			if (animator) {
+				var state = animator.GetCurrentAnimatorStateInfo(0);
+				var prevTime = state.normalizedTime;
+				animator.Play(AnimationPrefix + animSuffix, 0, prevTime);
+			}
 		}
 	}
 }
